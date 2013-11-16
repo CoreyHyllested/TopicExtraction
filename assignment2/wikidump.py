@@ -1,27 +1,16 @@
 #!/usr/bin/python
 
-# onlinewikipedia.py: Demonstrates the use of online VB for LDA to
-# analyze a bunch of random Wikipedia articles.
-#
-# Copyright (C) 2010  Matthew D. Hoffman
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import nltk
 import cPickle, string, numpy, getopt, sys, random, time, re, pprint
 import wikirandom
 from nltk.corpus import conll2000
+
+corpus = []
+corpus.append(nltk.pos_tag(nltk.word_tokenize("The Stones Roses and New Order both kicked off reunion tours last year, and Wu-Tang Clan are at work on a new album to mark their twentieth anniversary.")))
+corpus.append(nltk.pos_tag(nltk.word_tokenize("Rumors about this year's Coachella headliners had been swirling for weeks, with the Rolling Stones and Daft Punk among the acts speculated to be performing at the festival.")))
+
+print nltk.batch_ne_chunk(corpus)
+
 
 
 def getArticles(nr = 5):
